@@ -1,5 +1,7 @@
 import 'package:AMOLED/constants/colors.dart';
 import 'package:AMOLED/constants/gradients.dart';
+import 'package:AMOLED/widgets/darkEroticWallpapersCell.dart';
+import 'package:AMOLED/widgets/darkWallpaperCell.dart';
 import 'package:esys_flutter_share/esys_flutter_share.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Future<bool> _onBackPress() => showCupertinoModalPopup(
         context: context,
-        builder: (context) => new CupertinoActionSheet(
+        builder: (context) => CupertinoActionSheet(
           title: Text("Do you wish to close the app ?"),
           cancelButton: CupertinoActionSheetAction(
             child: const Text("Close"),
@@ -89,14 +91,225 @@ class _HomePageState extends State<HomePage> {
                 fit: StackFit.expand,
                 children: [
                   Positioned(
-                    top: -(height * .085),
+                    top: -(height * .055),
                     left: -(width * .33),
                     child: Container(
                       height: height * .45,
                       width: (width - 22) * .98941176,
                       decoration: BoxDecoration(
-                        gradient: FzGradients.yellowOrangeGradient,
+                        gradient: FzGradients.deLaclos,
                         shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: (height * .36),
+                    right: -(width * .33),
+                    child: Container(
+                      height: height * .45,
+                      width: (width - 22) * .98941176,
+                      decoration: BoxDecoration(
+                        gradient: FzGradients.whiteSmokeGunmetalGray,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: height * .05,
+                    left: width * .05,
+                    child: Container(
+                      width: width - 20,
+                      height: height * .35,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Dark Sexy Wallpapers",
+                            style: TextStyle(
+                              // color: Colors.black,
+                              // fontFamily: 'SFProBlack',
+                              fontSize: 26.0,
+                              // fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w400,
+                              foreground: Paint()
+                                ..shader = LinearGradient(
+                                  colors: [
+                                    const Color(0xFFFF3399),
+                                    const Color(0xFFFF0000),
+                                  ],
+                                ).createShader(
+                                  Rect.fromLTRB(
+                                    200.0,
+                                    0.0,
+                                    100.0,
+                                    0.0,
+                                  ),
+                                ),
+                            ),
+                          ),
+                          // Container(
+                          //   margin: const EdgeInsets.only(
+                          //     top: 8.0,
+                          //     bottom: 15.0,
+                          //   ),
+                          //   width: (width - 40) * .783,
+                          //   height: 3.0,
+                          //   decoration: BoxDecoration(
+                          //     gradient: FzGradients.pinkRedGradient,
+                          //     borderRadius: BorderRadius.circular(
+                          //       14.0,
+                          //     ),
+                          //   ),
+                          // ),
+                          SizedBox(
+                            height: 15.0,
+                          ),
+                          Expanded(
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              physics: BouncingScrollPhysics(),
+                              itemCount: 10,
+                              itemBuilder: (context, i) {
+                                return Container(
+                                  padding: const EdgeInsets.only(right: 17.0),
+                                  child: DarkWallpaperCell(1),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: height * .39,
+                    left: width * .05,
+                    child: Container(
+                      width: width - 20,
+                      height: height * .35,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Dark Erotic Wallpapers",
+                            style: TextStyle(
+                              // fontFamily: 'SFProBlack',
+                              fontSize: 26.0,
+                              fontWeight: FontWeight.w400,
+                              foreground: Paint()
+                                ..shader = LinearGradient(
+                                  colors: [
+                                    const Color(0xFF46A3B7),
+                                    const Color(0xFF86F1DE),
+                                  ],
+                                ).createShader(
+                                  Rect.fromLTRB(
+                                    200.0,
+                                    0.0,
+                                    100.0,
+                                    0.0,
+                                  ),
+                                  // textDirection: TextDirection.ltr,
+                                ),
+                            ),
+                          ),
+                          // Container(
+                          //   margin: const EdgeInsets.only(
+                          //     top: 8.0,
+                          //     bottom: 15.0,
+                          //   ),
+                          //   width: (width - 40) * .82,
+                          //   height: 3.0,
+                          //   decoration: BoxDecoration(
+                          //     gradient: FzGradients.greenSexyGradient,
+                          //     borderRadius: BorderRadius.circular(
+                          //       14.0,
+                          //     ),
+                          //   ),
+                          // ),
+                          SizedBox(
+                            height: 15.0,
+                          ),
+                          Expanded(
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              physics: BouncingScrollPhysics(),
+                              itemCount: 10,
+                              itemBuilder: (context, i) {
+                                return Container(
+                                  padding: const EdgeInsets.only(right: 17.0),
+                                  child: DarkEroticWallpapersCell(1),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: height * .73,
+                    left: width * .05,
+                    child: Container(
+                      width: width - 20,
+                      height: height * .35,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Dark Wallpapers",
+                            style: TextStyle(
+                              // fontFamily: 'SFProBlack',
+                              fontSize: 26.0,
+                              fontWeight: FontWeight.w400,
+                              foreground: Paint()
+                                ..shader = LinearGradient(
+                                  colors: [
+                                    const Color(0xFFFDC830),
+                                    const Color(0xFFF37335),
+                                  ],
+                                ).createShader(
+                                  Rect.fromLTRB(
+                                    200.0,
+                                    0.0,
+                                    100.0,
+                                    0.0,
+                                  ),
+                                  // textDirection: TextDirection.ltr,
+                                ),
+                            ),
+                          ),
+                          // Container(
+                          //   margin: const EdgeInsets.only(
+                          //     top: 8.0,
+                          //     bottom: 15.0,
+                          //   ),
+                          //   width: (width - 40) * .82,
+                          //   height: 3.0,
+                          //   decoration: BoxDecoration(
+                          //     gradient: FzGradients.greenSexyGradient,
+                          //     borderRadius: BorderRadius.circular(
+                          //       14.0,
+                          //     ),
+                          //   ),
+                          // ),
+                          SizedBox(
+                            height: 15.0,
+                          ),
+                          Expanded(
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              physics: BouncingScrollPhysics(),
+                              itemCount: 10,
+                              itemBuilder: (context, i) {
+                                return Container(
+                                  padding: const EdgeInsets.only(right: 17.0),
+                                  child: DarkEroticWallpapersCell(1),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

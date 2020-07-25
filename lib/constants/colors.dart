@@ -6,7 +6,7 @@ class FzColors {
 
   //* Light Theme
   static const Color appColor = Color(0xFFFFAFBD);
-  static const Color bgColor = Color(0xFFF6F7FB);
+  static const Color bgColor = Color(0xFF121212);
   static const Color canvasColor = Color(0xFFFFFFFF);
   static const Color textColor = Color(0xFFFFFFFF);
   static const Color iconColor = Color(0xFFFFFFFF);

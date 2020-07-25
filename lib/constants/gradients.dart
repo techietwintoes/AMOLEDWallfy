@@ -171,4 +171,43 @@ class FzGradients {
       1.0,
     ],
   );
+  static var whiteSmokeGunmetalGray = LinearGradient(
+    colors: [
+      const Color(0xFF2C3539),
+      const Color(0xFFF5F5F5),
+    ],
+    tileMode: TileMode.clamp,
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    stops: [
+      0.0,
+      1.0,
+    ],
+  );
+  static var someoneelsetie = LinearGradient(
+    colors: [
+      const Color(0xFF28313B),
+      const Color(0xFF485461),
+    ],
+    tileMode: TileMode.clamp,
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    stops: [
+      0.0,
+      1.0,
+    ],
+  );
+  static var deLaclos = LinearGradient(
+    colors: [
+      const Color(0xFFE9E9E9),
+      const Color(0xFFF6F6F6),
+    ],
+    tileMode: TileMode.clamp,
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    stops: [
+      0.0,
+      1.0,
+    ],
+  );
 }
