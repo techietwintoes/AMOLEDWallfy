@@ -1,7 +1,5 @@
 import 'dart:convert';
-import 'package:AMOLED/constants/gradients.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Frazile {
@@ -55,19 +53,6 @@ class Frazile {
 
   //* Fonts
   static const String googleFamily = 'google';
-
-  //* Loaders
-  static Widget girlsWallfyLoader() => Center(
-        child: SpinKitThreeBounce(
-          size: 24.0,
-          itemBuilder: (_, index) => DecoratedBox(
-            decoration: BoxDecoration(
-              gradient: FzGradients.pinkRedGradient,
-              shape: BoxShape.circle,
-            ),
-          ),
-        ),
-      );
 
   //* Sizes
 
