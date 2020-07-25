@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class DarkEroticWallpapersCell extends StatefulWidget {
   final wallCell;
   final imageURL =
-      'https://images.unsplash.com/photo-1595277579301-c4ec937b9f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=615&q=80';
+      'https://images.unsplash.com/photo-1595277579301-c4ec937b9f1d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjk4MjkzfQ';
   DarkEroticWallpapersCell(this.wallCell);
   @override
   _DarkEroticWallpapersCellState createState() =>

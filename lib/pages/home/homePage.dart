@@ -1,12 +1,15 @@
 import 'package:AMOLED/constants/colors.dart';
+import 'package:AMOLED/constants/frazile.dart';
 import 'package:AMOLED/constants/gradients.dart';
+import 'package:AMOLED/providers/fetchgirls.dart';
 import 'package:AMOLED/widgets/darkEroticWallpapersCell.dart';
-import 'package:AMOLED/widgets/darkWallpaperCell.dart';
+import 'package:AMOLED/widgets/girlWallfy.dart';
 import 'package:esys_flutter_share/esys_flutter_share.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:launch_review/launch_review.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -50,13 +53,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    Provider.of<GirlsWallfy>(context, listen: false).getHomeData();
     super.initState();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
   }
 
@@ -75,6 +77,7 @@ class _HomePageState extends State<HomePage> {
 
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    final girls = Provider.of<GirlsWallfy>(context);
 
     return WillPopScope(
       onWillPop: _onBackPress,
@@ -131,82 +134,113 @@ class _HomePageState extends State<HomePage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "Dark Sexy Wallpapers",
-                                style: TextStyle(
-                                  // color: Colors.black,
-
-                                  // fontFamily: 'SFProBlack',
-
-                                  fontSize: 26.0,
-
-                                  // fontWeight: FontWeight.w700,
-
-                                  fontWeight: FontWeight.w400,
-
-                                  foreground: Paint()
-                                    ..shader = LinearGradient(
-                                      colors: [
-                                        const Color(0xFFFF3399),
-                                        const Color(0xFFFF0000),
-                                      ],
-                                    ).createShader(
-                                      Rect.fromLTRB(
-                                        200.0,
-                                        0.0,
-                                        100.0,
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Girls Wallfy",
+                                    style: TextStyle(
+                                      fontSize: 26.0,
+                                      fontWeight: FontWeight.w400,
+                                      foreground: Paint()
+                                        ..shader = LinearGradient(
+                                          colors: [
+                                            const Color(0xFFFF3399),
+                                            const Color(0xFFFF0000),
+                                          ],
+                                        ).createShader(
+                                          Rect.fromLTRB(
+                                            200.0,
+                                            0.0,
+                                            100.0,
+                                            0.0,
+                                          ),
+                                        ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 20.0,
+                                    padding: EdgeInsets.only(
+                                      right: width * .03,
+                                    ),
+                                    child: RaisedButton(
+                                      onPressed: () {},
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                          20.0,
+                                        ),
+                                      ),
+                                      padding: EdgeInsets.all(
                                         0.0,
                                       ),
+                                      child: Ink(
+                                        decoration: BoxDecoration(
+                                          gradient: FzGradients.pinkRedGradient,
+                                          borderRadius: BorderRadius.circular(
+                                            20.0,
+                                          ),
+                                        ),
+                                        child: Container(
+                                          constraints: BoxConstraints(
+                                            maxWidth: 100.0,
+                                          ),
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "View More",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
                                     ),
-                                ),
+                                  ),
+                                ],
                               ),
-
                               // Container(
-
                               //   margin: const EdgeInsets.only(
-
                               //     top: 8.0,
-
                               //     bottom: 15.0,
-
                               //   ),
-
                               //   width: (width - 40) * .783,
-
                               //   height: 3.0,
-
                               //   decoration: BoxDecoration(
-
                               //     gradient: FzGradients.pinkRedGradient,
-
                               //     borderRadius: BorderRadius.circular(
-
                               //       14.0,
-
                               //     ),
-
                               //   ),
-
                               // ),
-
                               SizedBox(
                                 height: 15.0,
                               ),
-
-                              Expanded(
-                                child: ListView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  physics: BouncingScrollPhysics(),
-                                  itemCount: 10,
-                                  itemBuilder: (context, i) {
-                                    return Container(
-                                      padding:
-                                          const EdgeInsets.only(right: 17.0),
-                                      child: DarkWallpaperCell(1),
-                                    );
-                                  },
-                                ),
-                              ),
+                              girls.isFetching
+                                  ? Frazile.girlsWallfyLoader()
+                                  : girls.getResponseJson() != null
+                                      ? Expanded(
+                                          child: ListView.builder(
+                                            scrollDirection: Axis.horizontal,
+                                            physics: BouncingScrollPhysics(),
+                                            itemCount:
+                                                girls.getResponseJson().length,
+                                            itemBuilder: (context, i) {
+                                              return Container(
+                                                padding: const EdgeInsets.only(
+                                                  right: 17.0,
+                                                ),
+                                                child: GirlWallfy(
+                                                  girls
+                                                      .getResponseJson()[i]
+                                                      .urls
+                                                      .thumb,
+                                                ),
+                                              );
+                                            },
+                                          ),
+                                        )
+                                      : Container(),
                             ],
                           ),
                         ),
@@ -216,66 +250,89 @@ class _HomePageState extends State<HomePage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "Dark Erotic Wallpapers",
-                                style: TextStyle(
-                                  // fontFamily: 'SFProBlack',
-
-                                  fontSize: 26.0,
-
-                                  fontWeight: FontWeight.w400,
-
-                                  foreground: Paint()
-                                    ..shader = LinearGradient(
-                                      colors: [
-                                        const Color(0xFF46A3B7),
-                                        const Color(0xFF86F1DE),
-                                      ],
-                                    ).createShader(
-                                      Rect.fromLTRB(
-                                        200.0,
-                                        0.0,
-                                        100.0,
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Dark Erotic Wallfy",
+                                    style: TextStyle(
+                                      fontSize: 26.0,
+                                      fontWeight: FontWeight.w400,
+                                      foreground: Paint()
+                                        ..shader = LinearGradient(
+                                          colors: [
+                                            const Color(0xFF46A3B7),
+                                            const Color(0xFF86F1DE),
+                                          ],
+                                        ).createShader(
+                                          Rect.fromLTRB(
+                                            200.0,
+                                            0.0,
+                                            100.0,
+                                            0.0,
+                                          ),
+                                        ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 20.0,
+                                    padding: EdgeInsets.only(
+                                      right: width * .03,
+                                    ),
+                                    child: RaisedButton(
+                                      onPressed: () {},
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                          20.0,
+                                        ),
+                                      ),
+                                      padding: EdgeInsets.all(
                                         0.0,
                                       ),
-
-                                      // textDirection: TextDirection.ltr,
+                                      child: Ink(
+                                        decoration: BoxDecoration(
+                                          gradient:
+                                              FzGradients.blueSexyGradient,
+                                          borderRadius: BorderRadius.circular(
+                                            20.0,
+                                          ),
+                                        ),
+                                        child: Container(
+                                          constraints: BoxConstraints(
+                                            maxWidth: 100.0,
+                                          ),
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "View More",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
                                     ),
-                                ),
+                                  ),
+                                ],
                               ),
-
                               // Container(
-
                               //   margin: const EdgeInsets.only(
-
                               //     top: 8.0,
-
                               //     bottom: 15.0,
-
                               //   ),
-
                               //   width: (width - 40) * .82,
-
                               //   height: 3.0,
-
                               //   decoration: BoxDecoration(
-
                               //     gradient: FzGradients.greenSexyGradient,
-
                               //     borderRadius: BorderRadius.circular(
-
                               //       14.0,
-
                               //     ),
-
                               //   ),
-
                               // ),
-
                               SizedBox(
                                 height: 15.0,
                               ),
-
                               Expanded(
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
@@ -299,66 +356,88 @@ class _HomePageState extends State<HomePage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "Dark Wallpapers",
-                                style: TextStyle(
-                                  // fontFamily: 'SFProBlack',
-
-                                  fontSize: 26.0,
-
-                                  fontWeight: FontWeight.w400,
-
-                                  foreground: Paint()
-                                    ..shader = LinearGradient(
-                                      colors: [
-                                        const Color(0xFFFDC830),
-                                        const Color(0xFFF37335),
-                                      ],
-                                    ).createShader(
-                                      Rect.fromLTRB(
-                                        200.0,
-                                        0.0,
-                                        100.0,
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Dark Wallpapers",
+                                    style: TextStyle(
+                                      fontSize: 26.0,
+                                      fontWeight: FontWeight.w400,
+                                      foreground: Paint()
+                                        ..shader = LinearGradient(
+                                          colors: [
+                                            const Color(0xFFFDC830),
+                                            const Color(0xFFF37335),
+                                          ],
+                                        ).createShader(
+                                          Rect.fromLTRB(
+                                            200.0,
+                                            0.0,
+                                            100.0,
+                                            0.0,
+                                          ),
+                                        ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 20.0,
+                                    padding: EdgeInsets.only(
+                                      right: width * .03,
+                                    ),
+                                    child: RaisedButton(
+                                      onPressed: () {},
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                          20.0,
+                                        ),
+                                      ),
+                                      padding: EdgeInsets.all(
                                         0.0,
                                       ),
-
-                                      // textDirection: TextDirection.ltr,
+                                      child: Ink(
+                                        decoration: BoxDecoration(
+                                          gradient: FzGradients.citruspeel,
+                                          borderRadius: BorderRadius.circular(
+                                            20.0,
+                                          ),
+                                        ),
+                                        child: Container(
+                                          constraints: BoxConstraints(
+                                            maxWidth: 100.0,
+                                          ),
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "View More",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
                                     ),
-                                ),
+                                  ),
+                                ],
                               ),
-
                               // Container(
-
                               //   margin: const EdgeInsets.only(
-
                               //     top: 8.0,
-
                               //     bottom: 15.0,
-
                               //   ),
-
                               //   width: (width - 40) * .82,
-
                               //   height: 3.0,
-
                               //   decoration: BoxDecoration(
-
                               //     gradient: FzGradients.greenSexyGradient,
-
                               //     borderRadius: BorderRadius.circular(
-
                               //       14.0,
-
                               //     ),
-
                               //   ),
-
                               // ),
-
                               SizedBox(
                                 height: 15.0,
                               ),
-
                               Expanded(
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,

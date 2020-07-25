@@ -1,12 +1,12 @@
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
-import 'fetchfoodwalls.dart';
+import 'fetchgirls.dart';
 
 class Providers {
   static List<SingleChildWidget> providers() => [
-        ChangeNotifierProvider<Walls>(
-          create: (_) => Walls(),
+        ChangeNotifierProvider<GirlsWallfy>(
+          create: (_) => GirlsWallfy(),
         ),
       ];
 }

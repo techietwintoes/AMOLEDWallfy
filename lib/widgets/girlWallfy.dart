@@ -1,16 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class DarkWallpaperCell extends StatefulWidget {
-  final wallCell;
-  final imageURL =
-      'https://images.unsplash.com/photo-1595053898099-fa9d460ec6c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
-  DarkWallpaperCell(this.wallCell);
+class GirlWallfy extends StatefulWidget {
+  final imageURL;
+  GirlWallfy(this.imageURL);
   @override
-  _DarkWallpaperCellState createState() => _DarkWallpaperCellState();
+  _GirlWallfyState createState() => _GirlWallfyState();
 }
 
-class _DarkWallpaperCellState extends State<DarkWallpaperCell> {
+class _GirlWallfyState extends State<GirlWallfy> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;

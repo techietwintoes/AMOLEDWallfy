@@ -1,25 +1,17 @@
 import 'dart:convert';
+import 'package:AMOLED/constants/gradients.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'colors.dart';
-
 class Frazile {
+  Frazile._();
+
   //* Names
   static const String appName = 'AMOLED Wallfy';
   static const String aboutScreen = 'About';
   static const String settingsScreen = 'Settings';
   static const String donateScreen = 'Donate';
-
-  //* Service Caller Settings
-  static const String baseURL = "https://api.unsplash.com/search/photos";
-  static const String clientId =
-      "6fa91622109e859b1c40218a5dead99f7262cf4f698b1e2cb89dd18fc5824d15";
-  static const String query = "dark";
-  static const String orientation = "portrait";
-  static const int perPage = 10;
-  static int page = 1;
 
   //* DB Settings
   // static const int dbversion = 1;
@@ -65,6 +57,17 @@ class Frazile {
   static const String googleFamily = 'google';
 
   //* Loaders
+  static Widget girlsWallfyLoader() => Center(
+        child: SpinKitThreeBounce(
+          size: 24.0,
+          itemBuilder: (_, index) => DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: FzGradients.pinkRedGradient,
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      );
 
   //* Sizes
 

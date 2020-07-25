@@ -210,4 +210,17 @@ class FzGradients {
       1.0,
     ],
   );
+  static var citruspeel = LinearGradient(
+    colors: [
+      const Color(0xFFFDC830),
+      const Color(0xFFF37335),
+    ],
+    tileMode: TileMode.clamp,
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    stops: [
+      0.0,
+      1.0,
+    ],
+  );
 }
