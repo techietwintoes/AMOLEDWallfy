@@ -18,27 +18,23 @@ class _DarkEroticWallpapersCellState extends State<DarkEroticWallpapersCell> {
     final width = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {},
-      child: Column(
-        children: <Widget>[
-          Container(
-            alignment: Alignment.center,
-            child: Container(
-              height: height * .25,
-              width: 130.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: CachedNetworkImage(
-                  imageUrl: widget.imageURL,
-                  fit: BoxFit.cover,
-                  alignment: Alignment.center,
-                ),
-              ),
+      child: Container(
+        alignment: Alignment.center,
+        child: Container(
+          height: height * .25,
+          width: 130.0,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10.0),
+            child: CachedNetworkImage(
+              imageUrl: widget.imageURL,
+              fit: BoxFit.cover,
+              alignment: Alignment.center,
             ),
           ),
-        ],
+        ),
       ),
     );
   }

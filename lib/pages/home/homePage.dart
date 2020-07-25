@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
               child: Text("Share the App"),
               onPressed: () => Share.text(
                 'vkfdrnhogi',
-                "Hey! Check out this app on Playstore. Movienator is a Movie and TV Shows Database app. If you love the app please review the",
+                "Hey! Check out this app on Playstore.  is a Movie and TV Shows Database app. If you love the app please review the",
                 '',
               ),
             )
@@ -114,203 +114,269 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  Positioned(
-                    top: height * .05,
-                    left: width * .05,
-                    child: Container(
-                      width: width - 20,
-                      height: height * .35,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Dark Sexy Wallpapers",
-                            style: TextStyle(
-                              // color: Colors.black,
-                              // fontFamily: 'SFProBlack',
-                              fontSize: 26.0,
-                              // fontWeight: FontWeight.w700,
-                              fontWeight: FontWeight.w400,
-                              foreground: Paint()
-                                ..shader = LinearGradient(
-                                  colors: [
-                                    const Color(0xFFFF3399),
-                                    const Color(0xFFFF0000),
-                                  ],
-                                ).createShader(
-                                  Rect.fromLTRB(
-                                    200.0,
-                                    0.0,
-                                    100.0,
-                                    0.0,
-                                  ),
-                                ),
-                            ),
-                          ),
-                          // Container(
-                          //   margin: const EdgeInsets.only(
-                          //     top: 8.0,
-                          //     bottom: 15.0,
-                          //   ),
-                          //   width: (width - 40) * .783,
-                          //   height: 3.0,
-                          //   decoration: BoxDecoration(
-                          //     gradient: FzGradients.pinkRedGradient,
-                          //     borderRadius: BorderRadius.circular(
-                          //       14.0,
-                          //     ),
-                          //   ),
-                          // ),
-                          SizedBox(
-                            height: 15.0,
-                          ),
-                          Expanded(
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              physics: BouncingScrollPhysics(),
-                              itemCount: 10,
-                              itemBuilder: (context, i) {
-                                return Container(
-                                  padding: const EdgeInsets.only(right: 17.0),
-                                  child: DarkWallpaperCell(1),
-                                );
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
+                  Container(
+                    height: height,
+                    margin: EdgeInsets.only(
+                      top: height * .11,
+                      left: width * .05,
+                      bottom: 0.0,
                     ),
-                  ),
-                  Positioned(
-                    top: height * .39,
-                    left: width * .05,
-                    child: Container(
-                      width: width - 20,
-                      height: height * .35,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Dark Erotic Wallpapers",
-                            style: TextStyle(
-                              // fontFamily: 'SFProBlack',
-                              fontSize: 26.0,
-                              fontWeight: FontWeight.w400,
-                              foreground: Paint()
-                                ..shader = LinearGradient(
-                                  colors: [
-                                    const Color(0xFF46A3B7),
-                                    const Color(0xFF86F1DE),
-                                  ],
-                                ).createShader(
-                                  Rect.fromLTRB(
-                                    200.0,
-                                    0.0,
-                                    100.0,
-                                    0.0,
-                                  ),
-                                  // textDirection: TextDirection.ltr,
+                    child: ListView(
+                      physics: BouncingScrollPhysics(),
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        Container(
+                          width: width - 20,
+                          height: height * .35,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Dark Sexy Wallpapers",
+                                style: TextStyle(
+                                  // color: Colors.black,
+
+                                  // fontFamily: 'SFProBlack',
+
+                                  fontSize: 26.0,
+
+                                  // fontWeight: FontWeight.w700,
+
+                                  fontWeight: FontWeight.w400,
+
+                                  foreground: Paint()
+                                    ..shader = LinearGradient(
+                                      colors: [
+                                        const Color(0xFFFF3399),
+                                        const Color(0xFFFF0000),
+                                      ],
+                                    ).createShader(
+                                      Rect.fromLTRB(
+                                        200.0,
+                                        0.0,
+                                        100.0,
+                                        0.0,
+                                      ),
+                                    ),
                                 ),
-                            ),
-                          ),
-                          // Container(
-                          //   margin: const EdgeInsets.only(
-                          //     top: 8.0,
-                          //     bottom: 15.0,
-                          //   ),
-                          //   width: (width - 40) * .82,
-                          //   height: 3.0,
-                          //   decoration: BoxDecoration(
-                          //     gradient: FzGradients.greenSexyGradient,
-                          //     borderRadius: BorderRadius.circular(
-                          //       14.0,
-                          //     ),
-                          //   ),
-                          // ),
-                          SizedBox(
-                            height: 15.0,
-                          ),
-                          Expanded(
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              physics: BouncingScrollPhysics(),
-                              itemCount: 10,
-                              itemBuilder: (context, i) {
-                                return Container(
-                                  padding: const EdgeInsets.only(right: 17.0),
-                                  child: DarkEroticWallpapersCell(1),
-                                );
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: height * .73,
-                    left: width * .05,
-                    child: Container(
-                      width: width - 20,
-                      height: height * .35,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Dark Wallpapers",
-                            style: TextStyle(
-                              // fontFamily: 'SFProBlack',
-                              fontSize: 26.0,
-                              fontWeight: FontWeight.w400,
-                              foreground: Paint()
-                                ..shader = LinearGradient(
-                                  colors: [
-                                    const Color(0xFFFDC830),
-                                    const Color(0xFFF37335),
-                                  ],
-                                ).createShader(
-                                  Rect.fromLTRB(
-                                    200.0,
-                                    0.0,
-                                    100.0,
-                                    0.0,
-                                  ),
-                                  // textDirection: TextDirection.ltr,
+                              ),
+
+                              // Container(
+
+                              //   margin: const EdgeInsets.only(
+
+                              //     top: 8.0,
+
+                              //     bottom: 15.0,
+
+                              //   ),
+
+                              //   width: (width - 40) * .783,
+
+                              //   height: 3.0,
+
+                              //   decoration: BoxDecoration(
+
+                              //     gradient: FzGradients.pinkRedGradient,
+
+                              //     borderRadius: BorderRadius.circular(
+
+                              //       14.0,
+
+                              //     ),
+
+                              //   ),
+
+                              // ),
+
+                              SizedBox(
+                                height: 15.0,
+                              ),
+
+                              Expanded(
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  physics: BouncingScrollPhysics(),
+                                  itemCount: 10,
+                                  itemBuilder: (context, i) {
+                                    return Container(
+                                      padding:
+                                          const EdgeInsets.only(right: 17.0),
+                                      child: DarkWallpaperCell(1),
+                                    );
+                                  },
                                 ),
-                            ),
+                              ),
+                            ],
                           ),
-                          // Container(
-                          //   margin: const EdgeInsets.only(
-                          //     top: 8.0,
-                          //     bottom: 15.0,
-                          //   ),
-                          //   width: (width - 40) * .82,
-                          //   height: 3.0,
-                          //   decoration: BoxDecoration(
-                          //     gradient: FzGradients.greenSexyGradient,
-                          //     borderRadius: BorderRadius.circular(
-                          //       14.0,
-                          //     ),
-                          //   ),
-                          // ),
-                          SizedBox(
-                            height: 15.0,
+                        ),
+                        Container(
+                          width: width - 20,
+                          height: height * .35,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Dark Erotic Wallpapers",
+                                style: TextStyle(
+                                  // fontFamily: 'SFProBlack',
+
+                                  fontSize: 26.0,
+
+                                  fontWeight: FontWeight.w400,
+
+                                  foreground: Paint()
+                                    ..shader = LinearGradient(
+                                      colors: [
+                                        const Color(0xFF46A3B7),
+                                        const Color(0xFF86F1DE),
+                                      ],
+                                    ).createShader(
+                                      Rect.fromLTRB(
+                                        200.0,
+                                        0.0,
+                                        100.0,
+                                        0.0,
+                                      ),
+
+                                      // textDirection: TextDirection.ltr,
+                                    ),
+                                ),
+                              ),
+
+                              // Container(
+
+                              //   margin: const EdgeInsets.only(
+
+                              //     top: 8.0,
+
+                              //     bottom: 15.0,
+
+                              //   ),
+
+                              //   width: (width - 40) * .82,
+
+                              //   height: 3.0,
+
+                              //   decoration: BoxDecoration(
+
+                              //     gradient: FzGradients.greenSexyGradient,
+
+                              //     borderRadius: BorderRadius.circular(
+
+                              //       14.0,
+
+                              //     ),
+
+                              //   ),
+
+                              // ),
+
+                              SizedBox(
+                                height: 15.0,
+                              ),
+
+                              Expanded(
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  physics: BouncingScrollPhysics(),
+                                  itemCount: 10,
+                                  itemBuilder: (context, i) {
+                                    return Container(
+                                      padding:
+                                          const EdgeInsets.only(right: 17.0),
+                                      child: DarkEroticWallpapersCell(1),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
-                          Expanded(
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              physics: BouncingScrollPhysics(),
-                              itemCount: 10,
-                              itemBuilder: (context, i) {
-                                return Container(
-                                  padding: const EdgeInsets.only(right: 17.0),
-                                  child: DarkEroticWallpapersCell(1),
-                                );
-                              },
-                            ),
+                        ),
+                        Container(
+                          width: width - 20,
+                          height: height * .35,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Dark Wallpapers",
+                                style: TextStyle(
+                                  // fontFamily: 'SFProBlack',
+
+                                  fontSize: 26.0,
+
+                                  fontWeight: FontWeight.w400,
+
+                                  foreground: Paint()
+                                    ..shader = LinearGradient(
+                                      colors: [
+                                        const Color(0xFFFDC830),
+                                        const Color(0xFFF37335),
+                                      ],
+                                    ).createShader(
+                                      Rect.fromLTRB(
+                                        200.0,
+                                        0.0,
+                                        100.0,
+                                        0.0,
+                                      ),
+
+                                      // textDirection: TextDirection.ltr,
+                                    ),
+                                ),
+                              ),
+
+                              // Container(
+
+                              //   margin: const EdgeInsets.only(
+
+                              //     top: 8.0,
+
+                              //     bottom: 15.0,
+
+                              //   ),
+
+                              //   width: (width - 40) * .82,
+
+                              //   height: 3.0,
+
+                              //   decoration: BoxDecoration(
+
+                              //     gradient: FzGradients.greenSexyGradient,
+
+                              //     borderRadius: BorderRadius.circular(
+
+                              //       14.0,
+
+                              //     ),
+
+                              //   ),
+
+                              // ),
+
+                              SizedBox(
+                                height: 15.0,
+                              ),
+
+                              Expanded(
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  physics: BouncingScrollPhysics(),
+                                  itemCount: 10,
+                                  itemBuilder: (context, i) {
+                                    return Container(
+                                      padding:
+                                          const EdgeInsets.only(right: 17.0),
+                                      child: DarkEroticWallpapersCell(1),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
