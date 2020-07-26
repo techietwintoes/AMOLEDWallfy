@@ -199,9 +199,9 @@ class _HomePageState extends State<HomePage> {
                       scrollDirection: Axis.vertical,
                       children: [
                         abstractWallfy(height, width, abs),
-                        // girlsWallfy(height, width, girls),
-                        // eroticWallfy(height, width, erotic),
                         darkWallfy(height, width, dark),
+                        // eroticWallfy(height, width, erotic),
+                        // girlsWallfy(height, width, girls),
                         minimalWallfy(height, width, minimal),
                         natureWallfy(height, width, nature),
                         othersWallfy(height, width, others),
