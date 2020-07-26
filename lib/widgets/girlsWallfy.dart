@@ -106,7 +106,12 @@ Widget girlsWallfy(double height, width, GirlsWallfy girls) => Container(
                               right: 17.0,
                             ),
                             child: GirlWallfy(
+                              girls.getResponseJson()[i].id,
                               girls.getResponseJson()[i].urls.thumb,
+                              girls.getResponseJson()[i].urls.small,
+                              girls.getResponseJson()[i].urls.regular,
+                              girls.getResponseJson()[i].urls.full,
+                              girls.getResponseJson()[i].urls.raw,
                             ),
                           );
                         },

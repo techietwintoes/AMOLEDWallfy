@@ -27,6 +27,15 @@ class FzColors {
       Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
 
   //* Get Colors in a List
-  List<Color> getListColors(List<String> colors) =>
+  static List<Color> getListColors(List<String> colors) =>
       colors.map((color) => FzColors._().hexToColor(color)).toList();
+
+  //* Loader Colors
+  static List<Color> getLoaderColors() => FzColors.getListColors(
+        ["#FF512F", "#DD2476"], // Bloody Mary
+      );
+  static List<double> getLoaderStops() => [
+        0.0,
+        0.5,
+      ];
 }

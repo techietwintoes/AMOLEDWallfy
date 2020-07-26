@@ -1,9 +1,18 @@
+import 'package:AMOLED/constants/frazile.dart';
+import 'package:AMOLED/pages/fullscreen/fullScreenArguments.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class GirlWallfy extends StatefulWidget {
-  final imageURL;
-  GirlWallfy(this.imageURL);
+  final imageID, thumbImage, smallImage, regularImage, fullImage, rawImage;
+  GirlWallfy(
+    this.imageID,
+    this.thumbImage,
+    this.smallImage,
+    this.regularImage,
+    this.fullImage,
+    this.rawImage,
+  );
   @override
   _GirlWallfyState createState() => _GirlWallfyState();
 }
@@ -14,21 +23,33 @@ class _GirlWallfyState extends State<GirlWallfy> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return InkWell(
-      onTap: () {},
-      child: Container(
-        alignment: Alignment.center,
-        child: Container(
-          height: height * .25,
-          width: 130.0,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          Frazile.fullScreen,
+          arguments: FullScreenArguments(
+            widget.fullImage,
+            widget.thumbImage,
           ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10.0),
-            child: CachedNetworkImage(
-              imageUrl: widget.imageURL,
-              fit: BoxFit.cover,
-              alignment: Alignment.center,
+        );
+      },
+      child: Hero(
+        tag: widget.imageID,
+        child: Container(
+          alignment: Alignment.center,
+          child: Container(
+            height: height * .25,
+            width: 130.0,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10.0),
+              child: CachedNetworkImage(
+                imageUrl: widget.thumbImage,
+                fit: BoxFit.cover,
+                alignment: Alignment.center,
+              ),
             ),
           ),
         ),

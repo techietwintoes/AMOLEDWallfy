@@ -10,6 +10,10 @@ class Frazile {
   static const String aboutScreen = 'About';
   static const String settingsScreen = 'Settings';
   static const String donateScreen = 'Donate';
+  static const String shareTitle = appName;
+  static const String shareName = 'AMOLED.jpg';
+  static const String shareMsg =
+      'AMOLED Wallfy is a huge collection of wallpapers in every sizes available. ';
 
   //* DB Settings
   // static const int dbversion = 1;
@@ -59,6 +63,7 @@ class Frazile {
   //* Routes
   static const String initial = home;
   static const String home = '/';
+  static const String fullScreen = '/fullScreen';
 
   //* Image Urls
   static const String profilePic =
