@@ -159,26 +159,26 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  // Positioned(
-                  //   top: MediaQuery.of(context).size.height * .035,
-                  //   right: MediaQuery.of(context).size.width * .02,
-                  //   child: PopupMenuButton<MenuItems>(
-                  //     elevation: 3.0,
-                  //     onCanceled: () => {},
-                  //     tooltip: "Menu",
-                  //     onSelected: selectedMenuItem,
-                  //     itemBuilder: (BuildContext context) {
-                  //       return menu.map(
-                  //         (MenuItems menuItem) {
-                  //           return PopupMenuItem<MenuItems>(
-                  //             value: menuItem,
-                  //             child: Text(menuItem.title),
-                  //           );
-                  //         },
-                  //       ).toList();
-                  //     },
-                  //   ),
-                  // ),
+                  Positioned(
+                    top: height * .036,
+                    right: width * .02,
+                    child: PopupMenuButton<MenuItems>(
+                      elevation: 3.0,
+                      onCanceled: () => {},
+                      tooltip: "Menu",
+                      onSelected: selectedMenuItem,
+                      itemBuilder: (BuildContext context) {
+                        return menu.map(
+                          (MenuItems menuItem) {
+                            return PopupMenuItem<MenuItems>(
+                              value: menuItem,
+                              child: Text(menuItem.title),
+                            );
+                          },
+                        ).toList();
+                      },
+                    ),
+                  ),
                   Container(
                     height: height,
                     margin: EdgeInsets.only(

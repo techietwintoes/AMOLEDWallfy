@@ -36,6 +36,9 @@ class _ConfigPageState extends State<ConfigPage>
           primaryIconTheme: IconThemeData(
             color: FzColors.iconColor,
           ),
+          iconTheme: IconThemeData(
+            color: Colors.white,
+          ),
           // disabledColor: Colors.grey,
           cardColor: Colors.white,
           primaryTextTheme: Theme.of(context).textTheme.apply(
