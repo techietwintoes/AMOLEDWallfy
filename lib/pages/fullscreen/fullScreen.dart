@@ -117,26 +117,31 @@ class _FullScreenState extends State<FullScreen> {
 
   setwallpaper(String imgUrl) async {
     Stream<String> progressString = Fzwallpaper.imageDownloadProgress(imgUrl);
-    progressString.listen((data) {
-      setState(() {
-        downloading = true;
-      });
-    }, onDone: () async {
-      await Fzwallpaper.bothScreen();
-      setState(() {
-        downloading = false;
-        Fluttertoast.showToast(
-          msg: 'Wallpaper Set Successfully.',
-          toastLength: Toast.LENGTH_LONG,
-          gravity: ToastGravity.CENTER,
-          // timeInSecForIos: 5,
-          backgroundColor: Colors.white70,
-          textColor: Color.fromRGBO(9, 9, 26, 1.0),
-          fontSize: 18.0,
+    progressString.listen(
+      (data) {
+        setState(() {
+          downloading = true;
+        });
+      },
+      onDone: () async {
+        await Fzwallpaper.bothScreen();
+        setState(
+          () {
+            downloading = false;
+            Fluttertoast.showToast(
+              msg: 'Wallpaper Set Successfully.',
+              toastLength: Toast.LENGTH_LONG,
+              gravity: ToastGravity.CENTER,
+              // timeInSecForIos: 5,
+              backgroundColor: Colors.white70,
+              textColor: Color.fromRGBO(9, 9, 26, 1.0),
+              fontSize: 18.0,
+            );
+          },
         );
-      });
-      await Fzwallpaper.bothScreen();
-    });
+        await Fzwallpaper.bothScreen();
+      },
+    );
     // await Wallpaper.homeScreen();
     // if (!mounted) return;
   }

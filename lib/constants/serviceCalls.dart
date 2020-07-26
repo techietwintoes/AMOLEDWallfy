@@ -13,8 +13,11 @@ class FzCalls {
   static int page = 1;
 
   // Queries
-  static const String girlsQuery = "GIRLS";
-  static const String eroticQuery = "EROTIC";
-  static const String darkQuery = "DARK";
-  static const String abstractQuery = "ABSTRACT";
+  static const String girlsQuery = 'GIRLS';
+  static const String eroticQuery = 'EROTIC';
+  static const String darkQuery = 'DARK';
+  static const String abstractQuery = 'ABSTRACT';
+  static const String minimalQuery = 'MINIMAL';
+  static const String natureQuery = 'NATURE';
+  static const String otherQuery = 'AMOLED';
 }

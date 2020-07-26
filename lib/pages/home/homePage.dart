@@ -1,17 +1,19 @@
 import 'package:AMOLED/constants/colors.dart';
 import 'package:AMOLED/constants/frazile.dart';
 import 'package:AMOLED/constants/gradients.dart';
-import 'package:AMOLED/constants/loaders.dart';
 import 'package:AMOLED/providers/fetchabstract.dart';
 import 'package:AMOLED/providers/fetchdark.dart';
 import 'package:AMOLED/providers/fetcherotic.dart';
 import 'package:AMOLED/providers/fetchgirls.dart';
+import 'package:AMOLED/providers/fetchminimal.dart';
+import 'package:AMOLED/providers/fetchnature.dart';
+import 'package:AMOLED/providers/fetchothers.dart';
 import 'package:AMOLED/services/menuItems.dart';
 import 'package:AMOLED/widgets/abstractWallfy.dart';
 import 'package:AMOLED/widgets/darkWallfy.dart';
-import 'package:AMOLED/widgets/eroticWallfy.dart';
-import 'package:AMOLED/widgets/girlWallfy.dart';
-import 'package:AMOLED/widgets/girlsWallfy.dart';
+import 'package:AMOLED/widgets/minimalWallfy.dart';
+import 'package:AMOLED/widgets/natureWallfy.dart';
+import 'package:AMOLED/widgets/othersWallfy.dart';
 import 'package:esys_flutter_share/esys_flutter_share.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -28,13 +30,13 @@ class _HomePageState extends State<HomePage> {
   Future<bool> _onBackPress() => showCupertinoModalPopup(
         context: context,
         builder: (context) => CupertinoActionSheet(
-          title: Text("Do you wish to close the app ?"),
+          title: Text("Do you wish to close the app?"),
           cancelButton: CupertinoActionSheetAction(
             child: const Text("Close"),
             isDefaultAction: true,
             onPressed: () => Navigator.of(context).pop(true),
           ),
-          message: Text("Have you reviewed the app on Playstore yet ?"),
+          message: Text("Have you reviewed the app on Playstore yet?"),
           actions: <Widget>[
             CupertinoActionSheetAction(
               child: Text("Review now on Playstore"),
@@ -50,9 +52,9 @@ class _HomePageState extends State<HomePage> {
             CupertinoActionSheetAction(
               child: Text("Share the App"),
               onPressed: () => Share.text(
-                'vkfdrnhogi',
-                "Hey! Check out this app on Playstore.  is a Movie and TV Shows Database app. If you love the app please review the",
-                '',
+                Frazile.shareTitle,
+                Frazile.shareMsg,
+                'text/plain',
               ),
             )
           ],
@@ -61,10 +63,13 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    Provider.of<GirlsWallfy>(context, listen: false).getHomeData();
-    Provider.of<EroticWallfy>(context, listen: false).getHomeData();
+    // Provider.of<GirlsWallfy>(context, listen: false).getHomeData();
+    // Provider.of<EroticWallfy>(context, listen: false).getHomeData();
     Provider.of<DarkWallfy>(context, listen: false).getHomeData();
     Provider.of<AbstractWallfy>(context, listen: false).getHomeData();
+    Provider.of<MinimalWallfy>(context, listen: false).getHomeData();
+    Provider.of<NatureWallfy>(context, listen: false).getHomeData();
+    Provider.of<OthersWallfy>(context, listen: false).getHomeData();
     super.initState();
   }
 
@@ -88,10 +93,13 @@ class _HomePageState extends State<HomePage> {
 
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    final girls = Provider.of<GirlsWallfy>(context);
-    final erotic = Provider.of<EroticWallfy>(context);
+    // final girls = Provider.of<GirlsWallfy>(context);
+    // final erotic = Provider.of<EroticWallfy>(context);
     final dark = Provider.of<DarkWallfy>(context);
     final abs = Provider.of<AbstractWallfy>(context);
+    final minimal = Provider.of<MinimalWallfy>(context);
+    final nature = Provider.of<NatureWallfy>(context);
+    final others = Provider.of<OthersWallfy>(context);
 
     return WillPopScope(
       onWillPop: _onBackPress,
@@ -191,9 +199,12 @@ class _HomePageState extends State<HomePage> {
                       scrollDirection: Axis.vertical,
                       children: [
                         abstractWallfy(height, width, abs),
-                        girlsWallfy(height, width, girls),
-                        eroticWallfy(height, width, erotic),
+                        // girlsWallfy(height, width, girls),
+                        // eroticWallfy(height, width, erotic),
                         darkWallfy(height, width, dark),
+                        minimalWallfy(height, width, minimal),
+                        natureWallfy(height, width, nature),
+                        othersWallfy(height, width, others),
                       ],
                     ),
                   ),

@@ -4,6 +4,9 @@ import 'fetchabstract.dart';
 import 'fetchdark.dart';
 import 'fetcherotic.dart';
 import 'fetchgirls.dart';
+import 'fetchminimal.dart';
+import 'fetchnature.dart';
+import 'fetchothers.dart';
 
 class Providers {
   static List<SingleChildWidget> providers() => [
@@ -18,6 +21,15 @@ class Providers {
         ),
         ChangeNotifierProvider<AbstractWallfy>(
           create: (_) => AbstractWallfy(),
+        ),
+        ChangeNotifierProvider<MinimalWallfy>(
+          create: (_) => MinimalWallfy(),
+        ),
+        ChangeNotifierProvider<NatureWallfy>(
+          create: (_) => NatureWallfy(),
+        ),
+        ChangeNotifierProvider<OthersWallfy>(
+          create: (_) => OthersWallfy(),
         ),
       ];
 }

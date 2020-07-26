@@ -223,4 +223,17 @@ class FzGradients {
       1.0,
     ],
   );
+  static var lbizaSunset = LinearGradient(
+    colors: [
+      const Color(0xFFEE0979),
+      const Color(0xFFFF6A00),
+    ],
+    tileMode: TileMode.clamp,
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    stops: [
+      0.0,
+      1.0,
+    ],
+  );
 }

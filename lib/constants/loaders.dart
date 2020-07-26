@@ -53,4 +53,40 @@ class FzLoaders {
           ),
         ),
       );
+
+  static Widget minimalWallfyLoader() => Center(
+        child: SpinKitThreeBounce(
+          size: 24.0,
+          itemBuilder: (_, index) => DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: FzGradients.violetSexyGradient,
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      );
+
+  static Widget natureWallfyLoader() => Center(
+        child: SpinKitThreeBounce(
+          size: 24.0,
+          itemBuilder: (_, index) => DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: FzGradients.skyBlueGradient,
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      );
+
+  static Widget othersWallfyLoader() => Center(
+        child: SpinKitThreeBounce(
+          size: 24.0,
+          itemBuilder: (_, index) => DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: FzGradients.lbizaSunset,
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      );
 }
