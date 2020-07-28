@@ -17,7 +17,7 @@ Widget girlsWallfy(double height, width, GirlsWallfy girls) => Container(
               Text(
                 "Girls Wallfy",
                 style: TextStyle(
-                  fontSize: 26.0,
+                  fontSize: (height / width) * 11,
                   fontWeight: FontWeight.w400,
                   foreground: Paint()
                     ..shader = LinearGradient(
@@ -66,6 +66,7 @@ Widget girlsWallfy(double height, width, GirlsWallfy girls) => Container(
                         "View More",
                         textAlign: TextAlign.center,
                         style: TextStyle(
+                          fontSize: (height / width) * 6,
                           color: Colors.white,
                         ),
                       ),

@@ -16,7 +16,7 @@ Widget natureWallfy(double height, width, NatureWallfy nature) => Container(
               Text(
                 "Nature Wallfy",
                 style: TextStyle(
-                  fontSize: 26.0,
+                  fontSize: (height / width) * 11,
                   fontWeight: FontWeight.w400,
                   foreground: Paint()
                     ..shader = LinearGradient(
@@ -65,6 +65,7 @@ Widget natureWallfy(double height, width, NatureWallfy nature) => Container(
                         "View More",
                         textAlign: TextAlign.center,
                         style: TextStyle(
+                          fontSize: (height / width) * 6,
                           color: Colors.white,
                         ),
                       ),

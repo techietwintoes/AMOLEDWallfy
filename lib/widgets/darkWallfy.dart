@@ -16,7 +16,7 @@ Widget darkWallfy(double height, width, DarkWallfy dark) => Container(
               Text(
                 "Dark Wallfy",
                 style: TextStyle(
-                  fontSize: 26.0,
+                  fontSize: (height / width) * 11,
                   fontWeight: FontWeight.w400,
                   foreground: Paint()
                     ..shader = LinearGradient(
@@ -65,6 +65,7 @@ Widget darkWallfy(double height, width, DarkWallfy dark) => Container(
                         "View More",
                         textAlign: TextAlign.center,
                         style: TextStyle(
+                          fontSize: (height / width) * 6,
                           color: Colors.white,
                         ),
                       ),

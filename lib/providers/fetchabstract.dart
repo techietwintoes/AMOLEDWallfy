@@ -68,8 +68,6 @@ class AbstractWallfy with ChangeNotifier {
       if (response.statusCode == 200) {
         jsonResponse = response.body;
       }
-    } else {
-      jsonResponse = 'No';
     }
 
     page == 1 ? _isFetching = false : _isLoading = false;

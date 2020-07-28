@@ -17,7 +17,7 @@ Widget othersWallfy(double height, width, OthersWallfy others) => Container(
               Text(
                 "More Wallfy",
                 style: TextStyle(
-                  fontSize: 26.0,
+                  fontSize: (height / width) * 11,
                   fontWeight: FontWeight.w400,
                   foreground: Paint()
                     ..shader = LinearGradient(
@@ -66,6 +66,7 @@ Widget othersWallfy(double height, width, OthersWallfy others) => Container(
                         "View More",
                         textAlign: TextAlign.center,
                         style: TextStyle(
+                          fontSize: (height / width) * 6,
                           color: Colors.white,
                         ),
                       ),

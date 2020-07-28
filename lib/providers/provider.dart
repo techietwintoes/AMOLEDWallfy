@@ -1,5 +1,6 @@
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'checkinternet.dart';
 import 'fetchabstract.dart';
 import 'fetchdark.dart';
 import 'fetcherotic.dart';
@@ -10,6 +11,9 @@ import 'fetchothers.dart';
 
 class Providers {
   static List<SingleChildWidget> providers() => [
+        ChangeNotifierProvider<InternetStatus>(
+          create: (_) => InternetStatus(),
+        ),
         ChangeNotifierProvider<GirlsWallfy>(
           create: (_) => GirlsWallfy(),
         ),

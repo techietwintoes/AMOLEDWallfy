@@ -1,6 +1,7 @@
 import 'package:AMOLED/constants/colors.dart';
 import 'package:AMOLED/constants/frazile.dart';
 import 'package:AMOLED/constants/gradients.dart';
+import 'package:AMOLED/providers/checkinternet.dart';
 import 'package:AMOLED/providers/fetchabstract.dart';
 import 'package:AMOLED/providers/fetchdark.dart';
 import 'package:AMOLED/providers/fetcherotic.dart';
@@ -72,6 +73,7 @@ class _HomePageState extends State<HomePage> {
     Provider.of<MinimalWallfy>(context, listen: false).getHomeData();
     Provider.of<NatureWallfy>(context, listen: false).getHomeData();
     Provider.of<OthersWallfy>(context, listen: false).getHomeData();
+    Provider.of<InternetStatus>(context, listen: false).updateInternetStatus();
     super.initState();
   }
 
@@ -95,6 +97,7 @@ class _HomePageState extends State<HomePage> {
 
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    final internet = Provider.of<InternetStatus>(context);
     final abs = Provider.of<AbstractWallfy>(context);
     final dark = Provider.of<DarkWallfy>(context);
     final erotic = Provider.of<EroticWallfy>(context);
@@ -102,7 +105,8 @@ class _HomePageState extends State<HomePage> {
     final minimal = Provider.of<MinimalWallfy>(context);
     final nature = Provider.of<NatureWallfy>(context);
     final others = Provider.of<OthersWallfy>(context);
-
+    // print('Original height = ' + ((height / width) * 6).toString());
+    // print('Original Width = ' + width.toString());
     return WillPopScope(
       onWillPop: _onBackPress,
       child: Scaffold(
@@ -148,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                       Frazile.appName.toUpperCase(),
                       style: TextStyle(
                         // color: Colors.white,
-                        fontSize: 24.0,
+                        fontSize: (height / width) * 12,
                         letterSpacing: 1.0,
                         wordSpacing: 2.5,
                         fontWeight: FontWeight.w400,
@@ -196,19 +200,66 @@ class _HomePageState extends State<HomePage> {
                       left: width * .05,
                       bottom: 0.0,
                     ),
-                    child: ListView(
-                      physics: BouncingScrollPhysics(),
-                      scrollDirection: Axis.vertical,
-                      children: [
-                        abstractWallfy(height, width, abs),
-                        darkWallfy(height, width, dark),
-                        eroticWallfy(height, width, erotic),
-                        girlsWallfy(height, width, girls),
-                        minimalWallfy(height, width, minimal),
-                        natureWallfy(height, width, nature),
-                        othersWallfy(height, width, others),
-                      ],
-                    ),
+                    child: internet.status
+                        ? ListView(
+                            physics: BouncingScrollPhysics(),
+                            scrollDirection: Axis.vertical,
+                            children: [
+                              abstractWallfy(height, width, abs),
+                              darkWallfy(height, width, dark),
+                              eroticWallfy(height, width, erotic),
+                              girlsWallfy(height, width, girls),
+                              minimalWallfy(height, width, minimal),
+                              natureWallfy(height, width, nature),
+                              othersWallfy(height, width, others),
+                            ],
+                          )
+                        : Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  Frazile.nointernet.toUpperCase(),
+                                  style: TextStyle(
+                                    // color: Colors.white,
+
+                                    fontSize: (height / width) * 10,
+
+                                    fontWeight: FontWeight.w400,
+
+                                    foreground: Paint()
+                                      ..shader = LinearGradient(
+                                        colors: [
+                                          const Color(0xFFFF3399),
+                                          const Color(0xFFFF0000),
+                                        ],
+                                      ).createShader(
+                                        Rect.fromLTRB(
+                                          200.0,
+                                          0.0,
+                                          100.0,
+                                          0.0,
+                                        ),
+                                      ),
+                                  ),
+                                ),
+                                MaterialButton(
+                                  onPressed: () {
+                                    internet.updateInternetStatus();
+                                    abs.getHomeData();
+                                    dark.getHomeData();
+                                    erotic.getHomeData();
+                                    girls.getHomeData();
+                                    minimal.getHomeData();
+                                    nature.getHomeData();
+                                    others.getHomeData();
+                                  },
+                                  child: Text('Retry'),
+                                  color: Colors.amber,
+                                )
+                              ],
+                            ),
+                          ),
                   ),
                 ],
               ),
