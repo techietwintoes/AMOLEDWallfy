@@ -1,12 +1,20 @@
+import 'package:AMOLED/constants/colors.dart';
 import 'package:AMOLED/constants/frazile.dart';
 import 'package:AMOLED/pages/fullscreen/fullScreenArguments.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class GirlWallfy extends StatefulWidget {
-  final imageID, thumbImage, smallImage, regularImage, fullImage, rawImage;
+  final imageID,
+      imagecolor,
+      thumbImage,
+      smallImage,
+      regularImage,
+      fullImage,
+      rawImage;
   GirlWallfy(
     this.imageID,
+    this.imagecolor,
     this.thumbImage,
     this.smallImage,
     this.regularImage,
@@ -42,6 +50,17 @@ class _GirlWallfyState extends State<GirlWallfy> {
             width: 130.0,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
+              boxShadow: [
+                BoxShadow(
+                  color: FzColors.hexToColor(widget.imagecolor),
+                  blurRadius: 5.0,
+                  spreadRadius: .4,
+                  offset: Offset(
+                    .7,
+                    3.0,
+                  ),
+                ),
+              ],
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),

@@ -104,6 +104,7 @@ Widget natureWallfy(double height, width, NatureWallfy nature) => Container(
                             padding: const EdgeInsets.only(right: 17.0),
                             child: GirlWallfy(
                               nature.getResponseJson()[i].id,
+                              nature.getResponseJson()[i].color,
                               nature.getResponseJson()[i].urls.thumb,
                               nature.getResponseJson()[i].urls.small,
                               nature.getResponseJson()[i].urls.regular,

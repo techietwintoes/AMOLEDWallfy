@@ -105,6 +105,7 @@ Widget othersWallfy(double height, width, OthersWallfy others) => Container(
                             padding: const EdgeInsets.only(right: 17.0),
                             child: GirlWallfy(
                               others.getResponseJson()[i].id,
+                              others.getResponseJson()[i].color,
                               others.getResponseJson()[i].urls.thumb,
                               others.getResponseJson()[i].urls.small,
                               others.getResponseJson()[i].urls.regular,

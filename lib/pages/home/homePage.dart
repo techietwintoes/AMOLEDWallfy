@@ -11,6 +11,8 @@ import 'package:AMOLED/providers/fetchothers.dart';
 import 'package:AMOLED/services/menuItems.dart';
 import 'package:AMOLED/widgets/abstractWallfy.dart';
 import 'package:AMOLED/widgets/darkWallfy.dart';
+import 'package:AMOLED/widgets/eroticWallfy.dart';
+import 'package:AMOLED/widgets/girlsWallfy.dart';
 import 'package:AMOLED/widgets/minimalWallfy.dart';
 import 'package:AMOLED/widgets/natureWallfy.dart';
 import 'package:AMOLED/widgets/othersWallfy.dart';
@@ -63,10 +65,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // Provider.of<GirlsWallfy>(context, listen: false).getHomeData();
-    // Provider.of<EroticWallfy>(context, listen: false).getHomeData();
-    Provider.of<DarkWallfy>(context, listen: false).getHomeData();
     Provider.of<AbstractWallfy>(context, listen: false).getHomeData();
+    Provider.of<DarkWallfy>(context, listen: false).getHomeData();
+    Provider.of<EroticWallfy>(context, listen: false).getHomeData();
+    Provider.of<GirlsWallfy>(context, listen: false).getHomeData();
     Provider.of<MinimalWallfy>(context, listen: false).getHomeData();
     Provider.of<NatureWallfy>(context, listen: false).getHomeData();
     Provider.of<OthersWallfy>(context, listen: false).getHomeData();
@@ -93,10 +95,10 @@ class _HomePageState extends State<HomePage> {
 
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    // final girls = Provider.of<GirlsWallfy>(context);
-    // final erotic = Provider.of<EroticWallfy>(context);
-    final dark = Provider.of<DarkWallfy>(context);
     final abs = Provider.of<AbstractWallfy>(context);
+    final dark = Provider.of<DarkWallfy>(context);
+    final erotic = Provider.of<EroticWallfy>(context);
+    final girls = Provider.of<GirlsWallfy>(context);
     final minimal = Provider.of<MinimalWallfy>(context);
     final nature = Provider.of<NatureWallfy>(context);
     final others = Provider.of<OthersWallfy>(context);
@@ -200,8 +202,8 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         abstractWallfy(height, width, abs),
                         darkWallfy(height, width, dark),
-                        // eroticWallfy(height, width, erotic),
-                        // girlsWallfy(height, width, girls),
+                        eroticWallfy(height, width, erotic),
+                        girlsWallfy(height, width, girls),
                         minimalWallfy(height, width, minimal),
                         natureWallfy(height, width, nature),
                         othersWallfy(height, width, others),

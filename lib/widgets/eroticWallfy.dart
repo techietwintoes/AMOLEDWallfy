@@ -104,6 +104,7 @@ Widget eroticWallfy(double height, width, EroticWallfy erotic) => Container(
                             padding: const EdgeInsets.only(right: 17.0),
                             child: GirlWallfy(
                               erotic.getResponseJson()[i].id,
+                              erotic.getResponseJson()[i].color,
                               erotic.getResponseJson()[i].urls.thumb,
                               erotic.getResponseJson()[i].urls.small,
                               erotic.getResponseJson()[i].urls.regular,

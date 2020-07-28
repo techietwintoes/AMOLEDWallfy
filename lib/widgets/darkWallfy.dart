@@ -104,6 +104,7 @@ Widget darkWallfy(double height, width, DarkWallfy dark) => Container(
                             padding: const EdgeInsets.only(right: 17.0),
                             child: GirlWallfy(
                               dark.getResponseJson()[i].id,
+                              dark.getResponseJson()[i].color,
                               dark.getResponseJson()[i].urls.thumb,
                               dark.getResponseJson()[i].urls.small,
                               dark.getResponseJson()[i].urls.regular,
