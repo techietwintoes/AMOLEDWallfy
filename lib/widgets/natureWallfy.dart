@@ -1,10 +1,15 @@
+import 'package:AMOLED/constants/frazile.dart';
 import 'package:AMOLED/constants/gradients.dart';
 import 'package:AMOLED/constants/loaders.dart';
+import 'package:AMOLED/constants/serviceCalls.dart';
+import 'package:AMOLED/pages/singlecat/catargs.dart';
 import 'package:AMOLED/providers/fetchnature.dart';
 import 'package:flutter/material.dart';
 import 'girlWallfy.dart';
 
-Widget natureWallfy(double height, width, NatureWallfy nature) => Container(
+Widget natureWallfy(
+        BuildContext context, double height, width, NatureWallfy nature) =>
+    Container(
       width: width - 20,
       height: height * .35,
       child: Column(
@@ -40,7 +45,13 @@ Widget natureWallfy(double height, width, NatureWallfy nature) => Container(
                   right: width * .03,
                 ),
                 child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamed(
+                    context,
+                    Frazile.cat,
+                    arguments: CatArguments(
+                      FzCalls.natureQuery,
+                    ),
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
                       20.0,

@@ -1,10 +1,15 @@
+import 'package:AMOLED/constants/frazile.dart';
 import 'package:AMOLED/constants/gradients.dart';
 import 'package:AMOLED/constants/loaders.dart';
+import 'package:AMOLED/constants/serviceCalls.dart';
+import 'package:AMOLED/pages/singlecat/catargs.dart';
 import 'package:AMOLED/providers/fetchabstract.dart';
 import 'package:flutter/material.dart';
 import 'girlWallfy.dart';
 
-Widget abstractWallfy(double height, width, AbstractWallfy abs) => Container(
+Widget abstractWallfy(
+        BuildContext context, double height, width, AbstractWallfy abs) =>
+    Container(
       width: width - 20,
       height: height * .35,
       child: Column(
@@ -40,7 +45,13 @@ Widget abstractWallfy(double height, width, AbstractWallfy abs) => Container(
                   right: width * .03,
                 ),
                 child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamed(
+                    context,
+                    Frazile.cat,
+                    arguments: CatArguments(
+                      FzCalls.abstractQuery,
+                    ),
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
                       20.0,
@@ -99,7 +110,7 @@ Widget abstractWallfy(double height, width, AbstractWallfy abs) => Container(
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         physics: BouncingScrollPhysics(),
-                        itemCount: 10,
+                        itemCount: abs.getResponseJson().length,
                         itemBuilder: (context, i) {
                           return Container(
                             padding: const EdgeInsets.only(right: 17.0),

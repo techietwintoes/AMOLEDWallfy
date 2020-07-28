@@ -1,3 +1,4 @@
+import 'package:AMOLED/providers/fetchcat.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'checkinternet.dart';
@@ -34,6 +35,9 @@ class Providers {
         ),
         ChangeNotifierProvider<OthersWallfy>(
           create: (_) => OthersWallfy(),
+        ),
+        ChangeNotifierProvider<CatWallfy>(
+          create: (_) => CatWallfy(),
         ),
       ];
 }

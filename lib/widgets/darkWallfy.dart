@@ -1,10 +1,15 @@
+import 'package:AMOLED/constants/frazile.dart';
 import 'package:AMOLED/constants/gradients.dart';
 import 'package:AMOLED/constants/loaders.dart';
+import 'package:AMOLED/constants/serviceCalls.dart';
+import 'package:AMOLED/pages/singlecat/catargs.dart';
 import 'package:AMOLED/providers/fetchdark.dart';
 import 'package:flutter/material.dart';
 import 'girlWallfy.dart';
 
-Widget darkWallfy(double height, width, DarkWallfy dark) => Container(
+Widget darkWallfy(
+        BuildContext context, double height, width, DarkWallfy dark) =>
+    Container(
       width: width - 20,
       height: height * .35,
       child: Column(
@@ -40,7 +45,13 @@ Widget darkWallfy(double height, width, DarkWallfy dark) => Container(
                   right: width * .03,
                 ),
                 child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamed(
+                    context,
+                    Frazile.cat,
+                    arguments: CatArguments(
+                      FzCalls.darkQuery,
+                    ),
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
                       20.0,

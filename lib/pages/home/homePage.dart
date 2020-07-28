@@ -105,8 +105,8 @@ class _HomePageState extends State<HomePage> {
     final minimal = Provider.of<MinimalWallfy>(context);
     final nature = Provider.of<NatureWallfy>(context);
     final others = Provider.of<OthersWallfy>(context);
-    // print('Original height = ' + ((height / width) * 6).toString());
-    // print('Original Width = ' + width.toString());
+    // print('Original height = ' + height.toString());
+    // print('Original Width = ' + (width * .362).toString());
     return WillPopScope(
       onWillPop: _onBackPress,
       child: Scaffold(
@@ -205,13 +205,13 @@ class _HomePageState extends State<HomePage> {
                             physics: BouncingScrollPhysics(),
                             scrollDirection: Axis.vertical,
                             children: [
-                              abstractWallfy(height, width, abs),
-                              darkWallfy(height, width, dark),
-                              eroticWallfy(height, width, erotic),
-                              girlsWallfy(height, width, girls),
-                              minimalWallfy(height, width, minimal),
-                              natureWallfy(height, width, nature),
-                              othersWallfy(height, width, others),
+                              abstractWallfy(context, height, width, abs),
+                              darkWallfy(context, height, width, dark),
+                              eroticWallfy(context, height, width, erotic),
+                              girlsWallfy(context, height, width, girls),
+                              minimalWallfy(context, height, width, minimal),
+                              natureWallfy(context, height, width, nature),
+                              othersWallfy(context, height, width, others),
                             ],
                           )
                         : Center(
@@ -221,12 +221,8 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   Frazile.nointernet.toUpperCase(),
                                   style: TextStyle(
-                                    // color: Colors.white,
-
                                     fontSize: (height / width) * 10,
-
                                     fontWeight: FontWeight.w400,
-
                                     foreground: Paint()
                                       ..shader = LinearGradient(
                                         colors: [

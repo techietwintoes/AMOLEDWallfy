@@ -1,10 +1,15 @@
+import 'package:AMOLED/constants/frazile.dart';
 import 'package:AMOLED/constants/gradients.dart';
 import 'package:AMOLED/constants/loaders.dart';
+import 'package:AMOLED/constants/serviceCalls.dart';
+import 'package:AMOLED/pages/singlecat/catargs.dart';
 import 'package:AMOLED/providers/fetchminimal.dart';
 import 'package:flutter/material.dart';
 import 'girlWallfy.dart';
 
-Widget minimalWallfy(double height, width, MinimalWallfy minimal) => Container(
+Widget minimalWallfy(
+        BuildContext context, double height, width, MinimalWallfy minimal) =>
+    Container(
       width: width - 20,
       height: height * .35,
       child: Column(
@@ -40,7 +45,13 @@ Widget minimalWallfy(double height, width, MinimalWallfy minimal) => Container(
                   right: width * .03,
                 ),
                 child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamed(
+                    context,
+                    Frazile.cat,
+                    arguments: CatArguments(
+                      FzCalls.minimalQuery,
+                    ),
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
                       20.0,
@@ -99,7 +110,7 @@ Widget minimalWallfy(double height, width, MinimalWallfy minimal) => Container(
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         physics: BouncingScrollPhysics(),
-                        itemCount: 10,
+                        itemCount: minimal.getResponseJson().length,
                         itemBuilder: (context, i) {
                           return Container(
                             padding: const EdgeInsets.only(right: 17.0),

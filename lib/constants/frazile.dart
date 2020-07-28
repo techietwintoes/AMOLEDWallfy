@@ -16,6 +16,7 @@ class Frazile {
       'AMOLED Wallfy is a huge collection of wallpapers in every sizes available. https://play.google.com/store/apps/details?id=com.fz.AMOLED';
 
   static const String nointernet = 'No Internet Connection!';
+  static const String servererror = 'Server Error!';
 
   //* DB Settings
   // static const int dbversion = 1;
@@ -66,6 +67,7 @@ class Frazile {
   static const String initial = home;
   static const String home = '/';
   static const String fullScreen = '/fullScreen';
+  static const String cat = '/cat';
 
   //* Image Urls
   static const String profilePic =

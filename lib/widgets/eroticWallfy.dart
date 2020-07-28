@@ -1,10 +1,15 @@
+import 'package:AMOLED/constants/frazile.dart';
 import 'package:AMOLED/constants/gradients.dart';
 import 'package:AMOLED/constants/loaders.dart';
+import 'package:AMOLED/constants/serviceCalls.dart';
+import 'package:AMOLED/pages/singlecat/catargs.dart';
 import 'package:AMOLED/providers/fetcherotic.dart';
 import 'package:flutter/material.dart';
 import 'girlWallfy.dart';
 
-Widget eroticWallfy(double height, width, EroticWallfy erotic) => Container(
+Widget eroticWallfy(
+        BuildContext context, double height, width, EroticWallfy erotic) =>
+    Container(
       width: width - 20,
       height: height * .35,
       child: Column(
@@ -40,7 +45,13 @@ Widget eroticWallfy(double height, width, EroticWallfy erotic) => Container(
                   right: width * .03,
                 ),
                 child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamed(
+                    context,
+                    Frazile.cat,
+                    arguments: CatArguments(
+                      FzCalls.eroticQuery,
+                    ),
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
                       20.0,

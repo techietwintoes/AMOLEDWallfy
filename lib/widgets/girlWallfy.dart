@@ -1,5 +1,6 @@
 import 'package:AMOLED/constants/colors.dart';
 import 'package:AMOLED/constants/frazile.dart';
+import 'package:AMOLED/pages/fullscreen/fullScreen.dart';
 import 'package:AMOLED/pages/fullscreen/fullScreenArguments.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +48,7 @@ class _GirlWallfyState extends State<GirlWallfy> {
           alignment: Alignment.center,
           child: Container(
             height: height * .25,
-            width: 130.0,
+            width: width * .36,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
               boxShadow: [
@@ -65,6 +66,8 @@ class _GirlWallfyState extends State<GirlWallfy> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
               child: CachedNetworkImage(
+                fadeInCurve: Curves.easeInCubic,
+                fadeInDuration: Duration(milliseconds: 900),
                 imageUrl: widget.thumbImage,
                 fit: BoxFit.cover,
                 alignment: Alignment.center,
