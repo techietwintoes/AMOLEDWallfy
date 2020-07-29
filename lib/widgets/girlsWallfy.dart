@@ -118,6 +118,7 @@ Widget girlsWallfy(
                               right: 17.0,
                             ),
                             child: GirlWallfy(
+                              i,
                               girls.getResponseJson()[i].id,
                               girls.getResponseJson()[i].color,
                               girls.getResponseJson()[i].urls.thumb,

@@ -115,6 +115,7 @@ Widget eroticWallfy(
                           return Container(
                             padding: const EdgeInsets.only(right: 17.0),
                             child: GirlWallfy(
+                              i,
                               erotic.getResponseJson()[i].id,
                               erotic.getResponseJson()[i].color,
                               erotic.getResponseJson()[i].urls.thumb,

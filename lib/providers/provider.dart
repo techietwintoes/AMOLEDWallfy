@@ -1,6 +1,7 @@
 import 'package:AMOLED/providers/fetchcat.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'AdmobAds.dart';
 import 'checkinternet.dart';
 import 'fetchabstract.dart';
 import 'fetchdark.dart';
@@ -38,6 +39,9 @@ class Providers {
         ),
         ChangeNotifierProvider<CatWallfy>(
           create: (_) => CatWallfy(),
+        ),
+        ChangeNotifierProvider<AdmobAds>(
+          create: (_) => AdmobAds(),
         ),
       ];
 }

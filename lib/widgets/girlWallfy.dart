@@ -2,11 +2,14 @@ import 'package:AMOLED/constants/colors.dart';
 import 'package:AMOLED/constants/frazile.dart';
 import 'package:AMOLED/pages/fullscreen/fullScreen.dart';
 import 'package:AMOLED/pages/fullscreen/fullScreenArguments.dart';
+import 'package:AMOLED/providers/AdmobAds.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class GirlWallfy extends StatefulWidget {
-  final imageID,
+  final id,
+      imageID,
       imagecolor,
       thumbImage,
       smallImage,
@@ -14,6 +17,7 @@ class GirlWallfy extends StatefulWidget {
       fullImage,
       rawImage;
   GirlWallfy(
+    this.id,
     this.imageID,
     this.imagecolor,
     this.thumbImage,
@@ -33,6 +37,7 @@ class _GirlWallfyState extends State<GirlWallfy> {
     final width = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
+        widget.id % 2 == 0 ?? Provider.of<AdmobAds>(context).interstitialAd();
         Navigator.pushNamed(
           context,
           Frazile.fullScreen,

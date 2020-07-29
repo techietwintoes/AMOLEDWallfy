@@ -114,7 +114,7 @@ Widget darkWallfy(
                         itemBuilder: (context, i) {
                           return Container(
                             padding: const EdgeInsets.only(right: 17.0),
-                            child: GirlWallfy(
+                            child: GirlWallfy(i,
                               dark.getResponseJson()[i].id,
                               dark.getResponseJson()[i].color,
                               dark.getResponseJson()[i].urls.thumb,

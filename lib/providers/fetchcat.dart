@@ -63,8 +63,8 @@ class CatWallfy with ChangeNotifier {
           page.toString() +
           '&content_filter=' +
           FzCalls.contentFilter +
-          '&order_by=' +
-          FzCalls.orderBy +
+          '&order_by=relevant' +
+          // FzCalls.orderBy +
           '');
 
       if (response.statusCode == 200) {

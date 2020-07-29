@@ -115,6 +115,7 @@ Widget abstractWallfy(
                           return Container(
                             padding: const EdgeInsets.only(right: 17.0),
                             child: GirlWallfy(
+                              i,
                               abs.getResponseJson()[i].id,
                               abs.getResponseJson()[i].color,
                               abs.getResponseJson()[i].urls.thumb,

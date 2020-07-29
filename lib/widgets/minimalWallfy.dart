@@ -115,6 +115,7 @@ Widget minimalWallfy(
                           return Container(
                             padding: const EdgeInsets.only(right: 17.0),
                             child: GirlWallfy(
+                              i,
                               minimal.getResponseJson()[i].id,
                               minimal.getResponseJson()[i].color,
                               minimal.getResponseJson()[i].urls.thumb,

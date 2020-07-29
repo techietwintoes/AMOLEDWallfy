@@ -1,6 +1,7 @@
 import 'package:AMOLED/constants/colors.dart';
 import 'package:AMOLED/constants/frazile.dart';
 import 'package:AMOLED/constants/gradients.dart';
+import 'package:AMOLED/providers/AdmobAds.dart';
 import 'package:AMOLED/providers/checkinternet.dart';
 import 'package:AMOLED/providers/fetchabstract.dart';
 import 'package:AMOLED/providers/fetchdark.dart';
@@ -66,6 +67,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    super.initState();
     Provider.of<AbstractWallfy>(context, listen: false).getHomeData();
     Provider.of<DarkWallfy>(context, listen: false).getHomeData();
     Provider.of<EroticWallfy>(context, listen: false).getHomeData();
@@ -74,12 +76,14 @@ class _HomePageState extends State<HomePage> {
     Provider.of<NatureWallfy>(context, listen: false).getHomeData();
     Provider.of<OthersWallfy>(context, listen: false).getHomeData();
     Provider.of<InternetStatus>(context, listen: false).updateInternetStatus();
-    super.initState();
+    Provider.of<AdmobAds>(context, listen: false).initialize();
+    Provider.of<AdmobAds>(context, listen: false).bannerAd();
   }
 
   @override
   void dispose() {
     super.dispose();
+    Provider.of<AdmobAds>(context, listen: false).dispose();
   }
 
   @override
